@@ -1,6 +1,6 @@
 import tkinter as tk
-import work_on_interfeis
-import database
+import update_interface
+import database_work
 
 def list_records():
     records_window = tk.Toplevel(window)
@@ -12,7 +12,7 @@ def list_records():
     return records_window, listbox
 
 def run_interfeis():
-    work_on_interfeis.set_update_stats(window)
+    update_interface.set_update_stats(window)
     window.mainloop()
 
 # Работа с интерфейсом приложения
@@ -40,19 +40,19 @@ interval_entry.pack()
 interval_entry.insert(0, "1")  
 
 set_interval_button = tk.Button(window, text="Установить интервал", \
-                                command=lambda: work_on_interfeis.set_interval())
+                                command=lambda: update_interface.set_interval())
 set_interval_button.pack()   
 
 start_button = tk.Button(window, text="Начать запись",\
-                          command=lambda: database.start_thread())
+                          command=lambda: database_work.start_thread())
 start_button.pack()
 
 stop_button = tk.Button(window, text="Остановить запись",\
-                        command=lambda: database.stop_thread())
+                        command=lambda: database_work.stop_thread())
 stop_button.pack_forget()
 
 show_db_button = tk.Button(window, text='БД',\
-                        command=lambda: database.show_records())
+                        command=lambda: database_work.show_records())
 show_db_button.pack()
 
 time_label = tk.Label(window, text="00:00", font=("Helvetica", 48))

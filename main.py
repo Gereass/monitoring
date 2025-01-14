@@ -1,5 +1,5 @@
-from database import create_db
-from interfeis_app import run_interfeis
+from database_work import create_db
+from interface_app import run_interfeis
 
 def init_interf():   
     create_db()

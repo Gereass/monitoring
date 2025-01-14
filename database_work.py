@@ -1,7 +1,7 @@
 import sqlite3
 import os
 import tkinter as tk
-import interfeis_app
+import interface_app
 import time
 import threading
 import resource_monitor
@@ -42,7 +42,7 @@ def fetch_data():
 def show_records():
     records = fetch_data()
 
-    records_window, listbox = interfeis_app.list_records()
+    records_window, listbox = interface_app.list_records()
 
     for record in records:
         listbox.insert(tk.END, record)
@@ -66,7 +66,7 @@ def write_to_db():
                     VALUES (?, ?, ?, ?, ?)
                     ''', (cpu, memory['used'], disk['used'], disk['write'], disk['read']))
         conn.commit()
-        time.sleep(int(interfeis_app.interval_entry.get()))
+        time.sleep(int(interface_app.interval_entry.get()))
 
     cursor.close()
 

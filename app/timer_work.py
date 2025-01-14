@@ -1,5 +1,4 @@
-import update_interface 
-import interface_app 
+import app.interface_app as interface_app
 
 seconds = 0
 running = False

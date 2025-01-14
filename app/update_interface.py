@@ -1,5 +1,5 @@
-import interface_app 
-import resource_monitor
+import app.interface_app as interface_app
+import app.resource_monitor as resource_monitor
 
 def set_update_stats(window):
     def update_stats():

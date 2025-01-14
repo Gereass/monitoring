@@ -1,6 +1,6 @@
 import tkinter as tk
-import update_interface
-import database_work
+import app.update_interface as update_interface
+import app.database_work as database_work
 
 def list_records():
     records_window = tk.Toplevel(window)

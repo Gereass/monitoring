@@ -1,12 +1,12 @@
 import sqlite3
 import os
 import tkinter as tk
-import interface_app
 import time
 import threading
-import resource_monitor
+import app.interface_app as interface_app
+import app.resource_monitor as resource_monitor
 
-from timer_work import showe_stop_button, showe_start_button
+from app.timer_work import showe_stop_button, showe_start_button
 
 
 # Функция для создания базы данных и таблицы

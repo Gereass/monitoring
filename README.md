@@ -18,6 +18,9 @@
 
 ```pip install psutil```
 
+Или установите зависимости из requirements.txt:
+
+```pip install -r requirements.txt```
 
 ## Запуск приложения
 

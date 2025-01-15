@@ -3,6 +3,7 @@ import app.update_interface as update_interface
 import app.database_work as database_work
 
 def list_records():
+    '''Функция для описания отдельного окна с записями из БД'''
     records_window = tk.Toplevel(window)
     records_window.title("Записи из базы данных")
     
@@ -12,10 +13,11 @@ def list_records():
     return records_window, listbox
 
 def run_interfeis():
+    '''Функция иницииаци обновления интерфейса'''
     update_interface.set_update_stats(window)
     window.mainloop()
 
-# Работа с интерфейсом приложения
+'''Работа с интерфейсом приложения'''
 window = tk.Tk()
 window.title("Монитор системных ресурсов")
 

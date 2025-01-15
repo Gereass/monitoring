@@ -9,8 +9,8 @@ import app.resource_monitor as resource_monitor
 from app.timer_work import showe_stop_button, showe_start_button
 
 
-# Функция для создания базы данных и таблицы
 def create_db():
+    '''Функция для создания базы данных и таблицы''' 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     conn = sqlite3.connect(os.path.join(script_dir, 'data.db'))
     cursor = conn.cursor()
@@ -27,8 +27,8 @@ def create_db():
     conn.commit()
     conn.close()
 
-# Функция для поиска всех записей в БД
 def fetch_data():
+    '''Функция для поиска всех записей в БД'''
     script_dir = os.path.dirname(os.path.abspath(__file__))
     conn = sqlite3.connect(os.path.join(script_dir, 'data.db'))
     cursor = conn.cursor()
@@ -38,8 +38,8 @@ def fetch_data():
 
     return records
 
-# Функция для вывода всех записей в БД
 def show_records():
+    '''Функция для вывода всех записей в БД'''
     records = fetch_data()
 
     records_window, listbox = interface_app.list_records()
@@ -50,13 +50,13 @@ def show_records():
     # Закрытие окна
     records_window.protocol("WM_DELETE_WINDOW", records_window.destroy)
 
-# Функция для записи в бд
 def write_to_db():
+    '''Функция для записи в бд'''
     script_dir = os.path.dirname(os.path.abspath(__file__))
     conn = sqlite3.connect(os.path.join(script_dir, 'data.db'))
     cursor = conn.cursor()
 
-    # Проверяем по событию была ли нажата кнопка стоп запись
+    '''Проверка события нажатия кнопка остановить запись'''
     while not stop_event.is_set():
         cpu = resource_monitor.get_cpu_usage()
         memory = resource_monitor.get_memory_usage()
@@ -70,8 +70,8 @@ def write_to_db():
 
     cursor.close()
 
-# Функции запуска и останавки потока для записи данных в БД
 def start_thread():
+    '''Функции запуска потока для записи данных в БД'''
     showe_stop_button()
     global stop_event
     stop_event = threading.Event()
@@ -79,6 +79,7 @@ def start_thread():
     thread.start()
 
 def stop_thread():
+    '''Функции остановки потока для записи данных в БД'''
     showe_start_button()
     stop_event.set()
         

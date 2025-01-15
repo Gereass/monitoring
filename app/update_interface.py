@@ -2,6 +2,7 @@ import app.interface_app as interface_app
 import app.resource_monitor as resource_monitor
 
 def set_update_stats(window):
+    '''Функция для обновления отображаемых изменений'''
     def update_stats():
         cpu_usage = resource_monitor.get_cpu_usage()
         memory = resource_monitor.get_memory_usage()
@@ -17,8 +18,8 @@ def set_update_stats(window):
     
     update_stats()
 
-# Установка интервала получения данных
 def set_interval():
+    '''Функцтя дя установки интервала получения данных'''
     try:
         interval = int(interface_app.interval_entry.get())
         if interval > 0:
